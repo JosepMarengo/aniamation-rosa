@@ -1,0 +1,57 @@
+/* Estilos existentes... */
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f7f7f7;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#rosa-puntos {
+    position: relative;
+    width: 600px; 
+    height: 400px;
+}
+
+.punto {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%; 
+    opacity: 0; 
+    background-color: black;
+    transition: opacity 0.5s ease-out, transform 1.5s ease-in-out;
+}
+
+/* NUEVO: Estilos del mensaje final */
+#mensaje-final {
+    position: absolute; /* Para centrarlo sobre el área de la rosa */
+    font-size: 32px;
+    font-weight: bold;
+    color: #cc0066; /* Un color rosa oscuro o rojo */
+    opacity: 0; /* Oculto inicialmente */
+    transform: scale(0.5); /* Empezará pequeño */
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out; /* Transición para la animación de JS */
+    z-index: 10; /* Asegura que esté por encima de los puntos */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5); /* Centrado inicial */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Clase que JavaScript añadirá para activar la animación */
+#mensaje-final.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(2);
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
